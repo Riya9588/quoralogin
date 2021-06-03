@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Avatar from 'react-avatar';
+
 import './Login.css';
 import {useSpring,animated} from 'react-spring';
 function Login(){
@@ -17,6 +17,7 @@ const registerBtnProps=useSpring({borderBottom:registrationFormStatus ? 'solid 2
 function loginClicked(){setRegistrationFormStatus(false)}
     return(
         
+        
     
        
         <div className="login-register-wrapper">
@@ -25,12 +26,9 @@ function loginClicked(){setRegistrationFormStatus(false)}
     
        <div className="form-group">
       
-       <Avatar facebookId="100008343750912" size="100" round="20px" 
-  className="avatar"
-       />
+     
     <animated.form action='' id='loginform' style={loginProps}><LoginForm /></animated.form>
-    <animated.form action='' id='registerform' style={registerProps}><RegisterForm /></animated.form>
-    <animated.div className="forgot-panel" style={loginProps}><a href='#'>forgot your password</a></animated.div>
+   
     </div>
    
        
@@ -43,27 +41,12 @@ function loginClicked(){setRegistrationFormStatus(false)}
 function LoginForm(){return(
     <React.Fragment>
        
-    <label for="username">USERNAME</label>
-<input type='text' id='username' placeholder="User Name"/>
-<label for='password'>PASSWORD</label>
-<input type='password' id='password' placeholder="Password"/>
+   
+<input type="email" id='username' placeholder="Email address"/>
+<input type='password' id='password'  placeholder="Password" minlength="8" required/>
 <input type='submit' value='Login' className='submit' />
-<animated.div className="forgot-panel" ><a href='#'>forgot your password?</a></animated.div>
+<animated.div className="forgot-panel" ><a href='#'style={{color: "grey" , paddingLeft:"10px"}} >forgot your password?</a></animated.div>
 </React.Fragment>
     )}
-function RegisterForm(){return(
- <React.Fragment>
-  
-        <label for="fullname">full name</label>
-        <input type="text" id="fullname" />
-        <label for="email">email</label>
-        <input type="text" id="email" />
-        <label for="password">password</label>
-        <input type="password" id="password" />
-        <label for="confirmpassword">confirm password</label>
-        <input type="password" id="confirmpassword" />
-        <input type="Login" id="submit" value="Login" class="Login"/>
-        </React.Fragment>
-)}
 
 export default Login;
